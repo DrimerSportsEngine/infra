@@ -22,10 +22,16 @@ minikube tunnel
 
 8. The API is now reachable through http://localhost:8080
 
-# Tips for maintenance
+
+# Tips for maintenance & troubleshooting
 
 To remove the whole installation from the Kubernetes cluster:
 
 ```commandline
 helm uninstall sports-engine
+```
+
+To aggregate all logs from api pods:
+```commandline
+kubectl logs -l"app.kubernetes.io/name=engine-chart" --all-containers=true -f
 ```
